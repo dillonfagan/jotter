@@ -8,6 +8,7 @@
     import Sun from "$components/icons/Sun.svelte";
     import Moon from "$components/icons/Moon.svelte";
     import Eye from "$components/icons/Eye.svelte";
+    import Edit from "$components/icons/Edit.svelte";
     import Save from "$components/icons/Save.svelte";
 
     const converter = new showdown.Converter({
@@ -58,7 +59,13 @@
                 <Moon class="h-6 w-6" />
             {/if}
         </Command>
-        <Command on:click={preview}><Eye class="h-6 w-6" /></Command>
+        <Command on:click={preview}>
+            {#if showPreview}
+                <Edit class="h-6 w-6" />
+            {:else}
+                <Eye class="h-6 w-6" />
+            {/if}
+        </Command>
         <Command on:click={() => save(doc)}><Save class="h-6 w-6" /></Command>
     </div>
 </div>
