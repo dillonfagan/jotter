@@ -42,14 +42,16 @@
 <div class="w-screen flex flex-row space-x-4 justify-center p-10">
     <div class="page min-h-screen p-8 rounded bg-gray-50 dark:bg-black shadow flex flex-col space-y-4">
         <h1 bind:textContent={doc.title} contenteditable="true" class="font-bold text-black dark:text-white text-4xl outline-none" />
-        {#if showPreview}
-            {@html markup}
-        {:else}
-            <textarea
-                bind:value={doc.prose}
-                placeholder="Start typing..."
-                class="w-full h-full bg-transparent outline-none text-gray-800 dark:text-gray-50 font-medium text-xl leading-loose resize-none" />
-        {/if}
+        <div class="w-full h-full text-gray-800 dark:text-gray-50 font-medium text-xl leading-loose">
+            {#if showPreview}
+                {@html markup}
+            {:else}
+                <textarea
+                    bind:value={doc.prose}
+                    placeholder="Start typing..."
+                    class="w-full h-full bg-transparent outline-none resize-none" />
+            {/if}
+        </div>
     </div>
     <div class="space-y-4">
         <Command on:click={() => settings.dark = !settings.dark}>
