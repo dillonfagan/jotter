@@ -61,9 +61,6 @@
                 <Moon class="h-6 w-6" />
             {/if}
         </Command>
-        <Command><Bold class="h-6 w-6" /></Command>
-        <Command><Italic class="h-6 w-6" /></Command>
-        <Command><AlignLeft class="h-6 w-6" /></Command>
         <Command on:click={preview}><Eye class="h-6 w-6" /></Command>
         <Command on:click={() => save(doc)}><Save class="h-6 w-6" /></Command>
     </div>
