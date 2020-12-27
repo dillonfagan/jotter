@@ -10,6 +10,7 @@
     import Bold from "$components/icons/Bold.svelte";
     import Italic from "$components/icons/Italic.svelte";
     import AlignLeft from "$components/icons/AlignLeft.svelte";
+    import Eye from "$components/icons/Eye.svelte";
     import Save from "$components/icons/Save.svelte";
 
     const converter = new showdown.Converter({
@@ -61,7 +62,7 @@
         <Command><Bold class="h-6 w-6" /></Command>
         <Command><Italic class="h-6 w-6" /></Command>
         <Command><AlignLeft class="h-6 w-6" /></Command>
-        <Command on:click={() => showPreview = !showPreview}>P</Command>
+        <Command on:click={() => showPreview = !showPreview}><Eye class="h-6 w-6" /></Command>
         <Command on:click={() => save(doc)}><Save class="h-6 w-6" /></Command>
     </div>
 </div>
