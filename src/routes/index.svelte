@@ -7,7 +7,7 @@
         <textarea
             bind:value={prose}
             placeholder="Start typing..."
-            class="page w-full h-full bg-transparent text-gray-50 font-serif text-lg leading-loose resize-none" />
+            class="page w-full h-full bg-transparent text-gray-50 font-serif font-medium text-lg leading-loose resize-none" />
     </div>
 </div>
 
