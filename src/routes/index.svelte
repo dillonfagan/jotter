@@ -7,9 +7,6 @@
     import Command from "$components/Command.svelte";
     import Sun from "$components/icons/Sun.svelte";
     import Moon from "$components/icons/Moon.svelte";
-    import Bold from "$components/icons/Bold.svelte";
-    import Italic from "$components/icons/Italic.svelte";
-    import AlignLeft from "$components/icons/AlignLeft.svelte";
     import Eye from "$components/icons/Eye.svelte";
     import Save from "$components/icons/Save.svelte";
 
