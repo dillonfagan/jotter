@@ -1,25 +1,33 @@
 let settings = {
-    dark: false
+    _dark: false,
 }
 
-function load() {
+export function loadSettings() {
     if (!localStorage.settings) {
         localStorage.settings = JSON.stringify(settings);
-        return settings;
+        return;
     }
-
+    
     settings = JSON.parse(localStorage.settings);
-    if (settings.dark)
+    if (settings._dark)
         document.querySelector('html').classList.add('dark');
-    return settings;
 }
 
-function dump(s) {
-    localStorage.settings = JSON.stringify(s);
+function save() {
+    console.log('Saving settings...');
+    localStorage.settings = JSON.stringify(settings);
 }
 
 export default {
-    settings,
-    load,
-    dump
+    get dark() {
+        return settings._dark;
+    },
+    set dark(val) {
+        settings._dark = val;
+        if (settings._dark === true)
+            document.querySelector('html').classList.add('dark');
+        else
+            document.querySelector('html').classList.remove('dark');
+        save();
+    }
 }

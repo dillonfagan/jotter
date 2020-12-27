@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-    import Settings from "$data/settings";
+    import settings from "$data/settings";
+    import { loadSettings } from "$data/settings";
     import save from "$library/save";
     import Command from "$components/Command.svelte";
     import Sun from "$components/icons/Sun.svelte";
@@ -9,28 +10,14 @@
     import AlignLeft from "$components/icons/AlignLeft.svelte";
     import Save from "$components/icons/Save.svelte";
 
-    let settings = Settings.settings;
-
     let doc = {
         title: "New document",
         prose: ""
     };
 
     onMount(() => {
-        settings = Settings.load();
+        loadSettings();
     });
-
-    function toggleTheme() {
-        if (settings.dark) {
-            document.querySelector('html').classList.remove('dark');
-            settings.dark = false;
-        } else {
-            document.querySelector('html').classList.add('dark');
-            settings.dark = true;
-        }
-
-        Settings.dump(settings);
-    }
 </script>
 
 <div class="w-screen flex flex-row space-x-4 justify-center p-10">
@@ -42,7 +29,7 @@
             class="w-full h-full bg-transparent text-gray-800 dark:text-gray-50 font-medium text-xl leading-loose resize-none" />
     </div>
     <div class="space-y-4">
-        <Command on:click={toggleTheme}><Sun class="h-6 w-6" /></Command>
+        <Command on:click={() => settings.dark = !settings.dark}><Sun class="h-6 w-6" /></Command>
         <Command><Bold class="h-6 w-6" /></Command>
         <Command><Italic class="h-6 w-6" /></Command>
         <Command><AlignLeft class="h-6 w-6" /></Command>
