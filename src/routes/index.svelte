@@ -18,13 +18,14 @@
     };
 
     onMount(() => {
-        if (localStorage.settings) {
-            settings = JSON.parse(localStorage.settings);
-            if (settings.dark)
-                document.querySelector('html').classList.add('dark');
-        } else {
+        if (!localStorage.settings) {
             localStorage.settings = JSON.stringify(settings);
+            return;
         }
+
+        settings = JSON.parse(localStorage.settings);
+        if (settings.dark)
+            document.querySelector('html').classList.add('dark');
     });
 
     function toggleTheme() {
@@ -35,7 +36,7 @@
             document.querySelector('html').classList.add('dark');
             settings.dark = true;
         }
-        
+
         localStorage.settings = JSON.stringify(settings);
     }
 </script>
