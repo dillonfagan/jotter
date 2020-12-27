@@ -27,14 +27,15 @@
     };
 
     let showPreview = false;
-    let formatted = "";
+    let markup = "";
 
     onMount(() => {
         loadSettings();
     });
 
-    function format() {
-        formatted = converter.makeHtml(doc.prose);
+    function preview() {
+        markup = converter.makeHtml(doc.prose);
+        showPreview = !showPreview;
     }
 </script>
 
@@ -42,11 +43,10 @@
     <div class="page min-h-screen p-8 rounded bg-gray-50 dark:bg-black shadow flex flex-col space-y-4">
         <h1 bind:textContent={doc.title} contenteditable="true" class="font-bold text-black dark:text-white text-4xl outline-none" />
         {#if showPreview}
-            {@html formatted}
+            {@html markup}
         {:else}
             <textarea
                 bind:value={doc.prose}
-                on:input={format}
                 placeholder="Start typing..."
                 class="w-full h-full bg-transparent outline-none text-gray-800 dark:text-gray-50 font-medium text-xl leading-loose resize-none" />
         {/if}
@@ -62,7 +62,7 @@
         <Command><Bold class="h-6 w-6" /></Command>
         <Command><Italic class="h-6 w-6" /></Command>
         <Command><AlignLeft class="h-6 w-6" /></Command>
-        <Command on:click={() => showPreview = !showPreview}><Eye class="h-6 w-6" /></Command>
+        <Command on:click={preview}><Eye class="h-6 w-6" /></Command>
         <Command on:click={() => save(doc)}><Save class="h-6 w-6" /></Command>
     </div>
 </div>
