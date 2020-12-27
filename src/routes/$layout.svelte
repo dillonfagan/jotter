@@ -6,13 +6,13 @@
     <title>Jotter</title>
 </svelte:head>
 
-<main>
+<main class="h-full w-full bg-gray-300 dark:bg-gray-900">
 	<slot />
 </main>
 
 <style>
 	:root {
-		@apply bg-gray-900 font-serif;
+		@apply font-serif;
 		caret-color: #93C5FD;
 	}
 
