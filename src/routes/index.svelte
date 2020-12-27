@@ -40,7 +40,7 @@
 
 <div class="w-screen flex flex-row space-x-4 justify-center p-10">
     <div class="page min-h-screen p-8 rounded bg-gray-50 dark:bg-black shadow flex flex-col space-y-4">
-        <h1 bind:textContent={doc.title} contenteditable="true" class="font-bold text-black dark:text-white text-4xl" />
+        <h1 bind:textContent={doc.title} contenteditable="true" class="font-bold text-black dark:text-white text-4xl outline-none" />
         {#if showPreview}
             {@html formatted}
         {:else}
