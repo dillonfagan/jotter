@@ -52,7 +52,7 @@
     </div>
     <div class="space-y-4">
         <Command on:click={() => settings.dark = !settings.dark}>
-            {#if settings.dark}
+            {#if settings.dark === true}
                 <Sun class="h-6 w-6" />
             {:else}
                 <Moon class="h-6 w-6" />
