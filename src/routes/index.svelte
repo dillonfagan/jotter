@@ -9,7 +9,7 @@
 
 <div class="w-screen flex flex-row space-x-4 justify-center p-10">
     <div class="w-1/2 min-h-screen p-8 rounded bg-black shadow flex flex-col space-y-4">
-        <h1 class="font-bold text-white text-4xl">{title}</h1>
+        <h1 contenteditable="true" class="font-bold text-white text-4xl" >{title}</h1>
         <textarea
             bind:value={prose}
             placeholder="Start typing..."
