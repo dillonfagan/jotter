@@ -5,6 +5,7 @@
     import save from "$library/save";
     import Command from "$components/Command.svelte";
     import Sun from "$components/icons/Sun.svelte";
+    import Moon from "$components/icons/Moon.svelte";
     import Bold from "$components/icons/Bold.svelte";
     import Italic from "$components/icons/Italic.svelte";
     import AlignLeft from "$components/icons/AlignLeft.svelte";
@@ -29,7 +30,13 @@
             class="w-full h-full bg-transparent text-gray-800 dark:text-gray-50 font-medium text-xl leading-loose resize-none" />
     </div>
     <div class="space-y-4">
-        <Command on:click={() => settings.dark = !settings.dark}><Sun class="h-6 w-6" /></Command>
+        <Command on:click={() => settings.dark = !settings.dark}>
+            {#if settings.dark}
+                <Sun class="h-6 w-6" />
+            {:else}
+                <Moon class="h-6 w-6" />
+            {/if}
+        </Command>
         <Command><Bold class="h-6 w-6" /></Command>
         <Command><Italic class="h-6 w-6" /></Command>
         <Command><AlignLeft class="h-6 w-6" /></Command>
