@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import Settings from "$data/settings";
     import save from "$library/save";
     import Command from "$components/Command.svelte";
     import Sun from "$components/icons/Sun.svelte";
@@ -8,9 +9,7 @@
     import AlignLeft from "$components/icons/AlignLeft.svelte";
     import Save from "$components/icons/Save.svelte";
 
-    let settings = {
-        dark: false
-    }
+    let settings = Settings.settings;
 
     let doc = {
         title: "New document",
@@ -18,14 +17,7 @@
     };
 
     onMount(() => {
-        if (!localStorage.settings) {
-            localStorage.settings = JSON.stringify(settings);
-            return;
-        }
-
-        settings = JSON.parse(localStorage.settings);
-        if (settings.dark)
-            document.querySelector('html').classList.add('dark');
+        settings = Settings.load();
     });
 
     function toggleTheme() {
@@ -37,7 +29,7 @@
             settings.dark = true;
         }
 
-        localStorage.settings = JSON.stringify(settings);
+        Settings.dump(settings);
     }
 </script>
 
