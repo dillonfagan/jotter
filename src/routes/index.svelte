@@ -1,4 +1,5 @@
 <script>
+    import Command from "$components/Command.svelte";
     let prose = "";
 </script>
 
@@ -8,6 +9,9 @@
             bind:value={prose}
             placeholder="Start typing..."
             class="page w-full h-full bg-transparent text-gray-50 font-serif font-medium text-lg leading-loose resize-none" />
+    </div>
+    <div class="px-4">
+        <Command>S</Command>
     </div>
 </div>
 
