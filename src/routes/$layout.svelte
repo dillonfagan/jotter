@@ -12,6 +12,6 @@
 
 <style>
 	:root {
-		@apply bg-gray-200;
+		@apply bg-gray-900;
 	}
 </style>
